@@ -1,0 +1,5 @@
+BOT_TOKEN = "7663538666:AAFSdCQ2wKguOnEskan8JOEMpH9EHW-iyHY"
+DB_HOST = "localhost"
+DB_USER = "root"
+DB_PASSWORD = ""
+DB_NAME = "fridge_db"
