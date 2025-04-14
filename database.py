@@ -9,6 +9,21 @@ def connetti_db():
         database=DB_NAME
     )
 
+# ✅ CREA LA TABELLA SE NON ESISTE
+def crea_tabella_utenti():
+    conn = connetti_db()
+    cursor = conn.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS utenti (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            telegram_id BIGINT NOT NULL,
+            first_name TEXT,
+            username TEXT
+        );
+    """)
+    conn.commit()
+    conn.close()
+
 def salva_utente(telegram_id, first_name, username):
     conn = connetti_db()
     cursor = conn.cursor()

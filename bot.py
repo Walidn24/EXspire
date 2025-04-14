@@ -16,6 +16,7 @@ from database import (
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from datetime import datetime
 from functools import partial
+from database import crea_tabella_utenti
 
 logging.basicConfig(level=logging.INFO)
 
@@ -212,6 +213,9 @@ async def fine(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return ConversationHandler.END
 
 if __name__ == '__main__':
+    
+    crea_tabella_utenti()
+    
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("start", start)],
