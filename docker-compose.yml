@@ -31,7 +31,7 @@ services:
     depends_on:
       - mysql
     volumes:
-      - mysql_data:/var/lib/mysql
+      - .:/usr/src/app
     environment:
       BOT_TOKEN: ${BOT_TOKEN}
 
