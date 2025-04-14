@@ -17,7 +17,6 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from datetime import datetime
 from functools import partial
 from crea_tabelle_db import crea_tabelle_iniziali
-import time
 
 logging.basicConfig(level=logging.INFO)
 
@@ -214,20 +213,6 @@ async def fine(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return ConversationHandler.END
 
 if __name__ == '__main__':
-
-
-    for i in range(10):  # tenta fino a 10 volte
-        try:
-            crea_tabelle_iniziali()
-            print("[✓] Tabelle inizializzate con successo.")
-            break
-        except Exception as e:
-            print(f"[!] MySQL non ancora pronto... ritento ({i+1}/10)")
-            time.sleep(3)
-    else:
-        print("[x] Errore: impossibile connettersi al database dopo vari tentativi.")
-        exit(1)
-
     
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     conv_handler = ConversationHandler(
