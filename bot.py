@@ -16,7 +16,7 @@ from database import (
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from datetime import datetime
 from functools import partial
-from crea_tabelle_db import crea_tabelle_iniziali 
+from crea_tabelle_db import crea_tabelle_iniziali
 
 logging.basicConfig(level=logging.INFO)
 
